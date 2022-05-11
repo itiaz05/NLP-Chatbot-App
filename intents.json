@@ -1,0 +1,102 @@
+{
+    "intents": [
+        {
+            "tag": "status cr",
+            "patterns": [
+            "what is the status of cr ?",
+            "status for cr number",
+            "status of cr"
+            ],
+            "response": "status cr"
+        },
+        {
+            "tag": "status cr step",
+            "patterns": [
+            "what is the status of cr step",
+            "status for cr in step",
+            "status of cr step",
+            "cr number in step"
+            ],
+            "response": "status cr step"
+        },
+        {
+            "tag": "owner cr",
+            "patterns": [
+            "who is the current owner of cr ?",
+            "who the owner of cr ?",
+            "who ownes cr",
+            "owner of cr number"
+            ],
+            "response": "owner cr"
+        },
+        {
+            "tag": "flow step",
+            "patterns": [
+            "what is required to complete a step for flow",
+            "tell me all that required to complete the step for flow",
+            "what is required to finish a step for flow",
+            "what need to complete step in flow"
+            ],
+            "response": "flow step"
+        },
+        {
+            "tag": "flow release",
+            "patterns": [
+            "how many flows are for release",
+            "how much flows are for release",
+            "what is the number of flows for release"
+            ],
+            "response": "flow release"  
+        },
+        {
+            "tag": "flow owner release",
+            "patterns": [
+            "for what flows in this release I am the owner?",
+            "what is the flows in current release that i am the owner",
+            "for what flows in this current release that i am the owner"
+            ],
+            "response": "flow owner release"
+        },
+        {
+            "tag": "flow initiate since",
+            "patterns": [
+            "how many flows were initiated since last week",
+            "how many flows were started since last week",
+            "what is the number of flows initiated since yesterday",
+            "how much flows were started from the last week",
+            "whats the number of flows that started this month"
+            ],
+            "response": "flow initiate since"
+        },
+        {
+            "tag": "flow initiate",
+            "patterns": [
+            "what is the latest flow I have initiated?",
+            "what is the last flow that i initiated?",
+            "what is the latest flow that i started?",
+            "which flows i have initiated",
+            "which flows i have started in the last flow"
+            ],
+            "response": "flow initiate"
+        },
+        {
+            "tag": "cr update",
+            "patterns": [
+            "what was the last to update for cr",
+            "what was the last to update for cr"
+            ],
+            "response": "cr update"
+        },
+        {
+            "tag": "cr initiate flow",
+            "patterns": [
+            "who initiate flow for cr",
+            "who start flow for cr",
+            "in cr, who start this flow",
+            "who began flow for cr",
+            "for cr number, who start the flow"
+            ],
+            "response": "cr initiate flow"
+        }
+    ]
+}
