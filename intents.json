@@ -51,6 +51,7 @@
         {
             "tag": "flow owner release",
             "patterns": [
+            "what flows do i own in this release?",
             "for what flows in this release I am the owner?",
             "what is the flows in current release that i am the owner",
             "for what flows in this current release that i am the owner"
