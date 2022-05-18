@@ -1,13 +1,9 @@
-from torch import device
 import torch
 import torch.nn as nn
-from model import create_data_loader
 
-def test_model(X,Y, model):
+def test_model(model, data_loader,device):
     #Hyperparameters:
     learning_rate = 0.01
-
-    data_loader = create_data_loader(X, Y)
     
     # Compute Loss and use Optimizier 
     criterion = nn.CrossEntropyLoss() # to calc the entropy loss between input and target

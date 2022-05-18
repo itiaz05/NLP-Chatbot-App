@@ -1,19 +1,10 @@
-import numpy as np
-from torch import device
 import torch
-from torch.utils.data import DataLoader
-from neuralNet import NeuralNet
 import torch.nn as nn
-from DataSet import DataSet
-from model import create_data_loader
 
-
-def train_model(X,Y, model):
+def train_model(model, data_loader,device):
     #Hyperparameters:
     learning_rate = 0.01
     num_epochs = 100
-
-    data_loader = create_data_loader(X, Y)
 
     # Loss and Optimizer
     criterion = nn.CrossEntropyLoss() # to calc the entropy loss between input and target

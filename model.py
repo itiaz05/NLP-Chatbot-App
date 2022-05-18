@@ -5,13 +5,11 @@ from torch import device
 import torch
 from torch.utils.data import DataLoader
 from neuralNet import NeuralNet
-from train import train_model
-import torch.nn as nn
 from preProcess import clean_pattern,bag_of_words
 from DataSet import DataSet
 from sklearn.model_selection import train_test_split
 from test import test_model
-from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
+from train import train_model
 
 # Samples - A sample is a single row of data. It contains inputs that are fed into the algorithm and an output that
 #           is used to compare to the prediction and calculate an error.
@@ -37,7 +35,6 @@ def build_data(dataTuples):
 def create_data_loader(X, Y):
     # Hyperparameters
     batch_size = 8 
-
     data = DataSet(X, Y) # Save our data
     return DataLoader(dataset=data,batch_size=batch_size,shuffle=True,num_workers=0)
 
@@ -79,8 +76,11 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = NeuralNet(input_size, hidden_size_nn,output_size_nn).to(device)
 
-train_model(X_train, Y_train, model)
-test_model(X_test, Y_test, model) # want to return something or just print the prob?
+train_data_loader = create_data_loader(X_train, Y_train)
+test_data_loader = create_data_loader(X_train, Y_train)
+
+train_model(model,train_data_loader,device)
+test_model(model,test_data_loader,device) # want to return something or just print the prob?
 
 # Save/Load the model and implement the chat 
 data = {

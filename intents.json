@@ -1,6 +1,19 @@
 {
     "intents": [
         {
+            "tag": "greeting",
+            "patterns": [
+                "hi",
+                "hey",
+                "how are you",
+                "hello",
+                "good day",
+                "greeting"
+            ],
+            "response": 
+                "hi there, what can I do for you"
+        },
+        {
             "tag": "status cr",
             "patterns": [
             "what is the status of cr ?",
