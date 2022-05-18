@@ -44,7 +44,6 @@ while True:
         break;
 
     sentence = clean_pattern(sentence)
-    print(sentence)
     bagOfWords = bag_of_words(sentence,all_words)
     bagAfterReshape = bagOfWords.reshape(1,bagOfWords.shape[0]) # Gives 1 row because we have 1 sample and [0] because our model 
     bagAsNumpyArray = torch.from_numpy(bagAfterReshape).to(device)
@@ -61,7 +60,7 @@ while True:
 
     softmax = torch.softmax(outputVector,dim=1) # use softmax regression on the output because we use multi classes
     probability = softmax[0][predicatedVector.item()]
-    print(probability.item())
+    # print(probability.item())
 
     if probability.item() > THRESHOLD:
         for intent in intents["intents"]:
