@@ -1,23 +1,28 @@
-import Axios from 'axios';
+import Axios from "axios";
 
 const $axios = Axios.create({
-    baseURL: '/api/',
-    headers: { 'Content-Type': 'application/json' },
+  baseURL: "/api/",
+  headers: { "Content-Type": "application/json" },
 });
 
+const getOnBeforeRequestHandler = () => (config) => config;
 
-const getOnBeforeRequestHandler = () => config => config;
+const onRequestErrorHandler = () => (error) => Promise.reject(error);
 
-const onRequestErrorHandler = () => error => Promise.reject(error);
+const getOnResponseHandler = () => (response) => response;
 
-const getOnResponseHandler = () => response => response;
-
-const onResponseErrorHandler = () => error => {
-    throw error;
+const onResponseErrorHandler = () => (error) => {
+  throw error;
 };
 
-$axios.interceptors.request.use(getOnBeforeRequestHandler(), onRequestErrorHandler());
-$axios.interceptors.response.use(getOnResponseHandler(), onResponseErrorHandler());
+$axios.interceptors.request.use(
+  getOnBeforeRequestHandler(),
+  onRequestErrorHandler()
+);
+$axios.interceptors.response.use(
+  getOnResponseHandler(),
+  onResponseErrorHandler()
+);
 
 class ChatBox {
   constructor() {
@@ -31,5 +36,13 @@ class ChatBox {
   }
 }
 
-const apiService = { ChatBox };
+class BotService {
+  static predictUserInput(userInput) {
+    return $axios
+      .get("api/predict/${userInput}/", { userInput })
+      .then((response) => response.data);
+  }
+}
+
+const apiService = { ChatBox, BotService };
 export default apiService;
