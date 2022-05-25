@@ -1,14 +1,18 @@
 .App {
-  align-items: center;
+  position: relative;
+  border: 1px solid black;
+  min-height: 100vh;
 }
 
-.chatIcon { 
-  float: right;
-  position: fixed;
-  bottom: 0;
-  left: -15px;
+.chatbox {
+  position: absolute;
+  bottom: 10vh;
+  right: 2vw;
+  border: 1px solid red;
+  width: 30vw;
+  height: 70vh;
 }
 
-
-
-
+.chatHeader {
+  position: relative;
+}

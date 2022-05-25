@@ -3,4 +3,4 @@
 __pychache__
 .venv
 code\client\chatbot-app\node_modules
-code\client\node_modules
+code/client/node_modules

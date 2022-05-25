@@ -1,27 +1,24 @@
 import "./App.css";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Fab from "@mui/material/Fab";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-
-
+import ForumIcon from "@mui/icons-material/Forum";
+import ChatHeader from "./components/chatHeader/ChatHeader";
+import TextField from "@mui/material/TextField";
+import ChatFooter from "./components/chatFooter/ChatFooter";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello! I'm Your Amdocs Bot</h1>
-      <TextareaAutosize
-        aria-label="messages textarea"
-        placeholder="Hi!"
-        style={{ width: 200 }}
-      />
-
-      <Fab
-        className="chatIcon"
-        size="small"
-        color="secondary"
-        aria-label="chatbot"
-      >
-        <PersonOutlineIcon />
+      <div className="chatbox">
+        <div className="chatHeader">
+          <ChatHeader />
+        </div>
+        <div></div>
+        <div className="chatFooter">
+          <ChatFooter />
+        </div>
+      </div>
+      <Fab className="buttonMassanger">
+        <ForumIcon />
       </Fab>
     </div>
   );
