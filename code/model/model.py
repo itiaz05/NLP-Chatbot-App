@@ -6,7 +6,7 @@ import torch
 from torch.utils.data import DataLoader
 from neuralNet import NeuralNet
 from preProcess import clean_pattern,bag_of_words
-from DataSet import DataSet
+from dataSet import DataSet
 from sklearn.model_selection import train_test_split
 from test import test_model
 from train import train_model
