@@ -7,13 +7,13 @@ from afterProcess import create_patterns,getNumbers
 
 nlp = spacy.load("en_core_web_lg")
 
-with open('C:\MyProjects\AmdocsProject\intents.json','r') as file:
+with open('code\model\intents.json','r') as file:
     intents = json.load(file)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load the data file that contain dictionary of hyperparameters 
-FILE_PATH = "C:\MyProjects\AmdocsProject\dataFile.pth"
+FILE_PATH = "code\model\dataFile.pth"
 data = torch.load(FILE_PATH)
 
 THRESHOLD = 0.75

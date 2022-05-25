@@ -93,7 +93,7 @@ data = {
 }
 
 # Save our model in pyTorch file
-FILE_PATH = "C:\MyProjects\AmdocsProject\dataFile.pth"
+FILE_PATH = "code\model\dataFile.pth"
 torch.save(data,FILE_PATH)
 
 print(f'Training Complete!\nfile saved to {FILE_PATH}')
