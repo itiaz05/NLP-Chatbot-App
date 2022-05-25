@@ -1,18 +1,10 @@
 .App {
   position: relative;
-  border: 1px solid black;
   min-height: 100vh;
 }
 
-.chatbox {
+.App .buttonMassanger {
   position: absolute;
-  bottom: 10vh;
-  right: 2vw;
-  border: 1px solid red;
-  width: 30vw;
-  height: 70vh;
-}
-
-.chatHeader {
-  position: relative;
+  bottom: 5vh;
+  right: 3vw;
 }
