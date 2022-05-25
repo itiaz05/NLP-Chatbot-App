@@ -7,13 +7,13 @@ from afterProcess import create_patterns,getNumbers
 
 nlp = spacy.load("en_core_web_lg")
 
-with open('C:\MyProjects\AmdocsProject\intents.json','r') as file:
+with open('code\server\model\intents.json','r') as file:
     intents = json.load(file)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load the data file that contain dictionary of hyperparameters 
-FILE_PATH = "C:\MyProjects\AmdocsProject\dataFile.pth"
+FILE_PATH = "code\server\model\dataFile.pth"
 data = torch.load(FILE_PATH)
 
 THRESHOLD = 0.75
@@ -37,13 +37,9 @@ matcher = create_patterns()
 
 bot_name = "Amdocs"
 print(f"\n{bot_name}: Welcome, how can i help you? (for exit type quit)")
-quit = "quit"
-while True:
-    sentence = input("You: ").lower()
-    if sentence == quit:
-        break;
 
-    sentence = clean_pattern(sentence)
+def get_response(msg):
+    sentence = clean_pattern(msg)
     bagOfWords = bag_of_words(sentence,all_words)
     bagAfterReshape = bagOfWords.reshape(1,bagOfWords.shape[0]) # Gives 1 row because we have 1 sample and [0] because our model 
     bagAsNumpyArray = torch.from_numpy(bagAfterReshape).to(device)
@@ -69,6 +65,3 @@ while True:
                 print(f"{bot_name}: {intentReponse}")
     else:
         print(f"{bot_name}: sorry i dont understand you...")
-
-print("Have a nice day!")
-

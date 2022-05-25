@@ -6,7 +6,7 @@ import torch
 from torch.utils.data import DataLoader
 from neuralNet import NeuralNet
 from preProcess import clean_pattern,bag_of_words
-from DataSet import DataSet
+from dataSet import DataSet
 from sklearn.model_selection import train_test_split
 from test import test_model
 from train import train_model
@@ -40,7 +40,7 @@ def create_data_loader(X, Y):
 
 nlp = spacy.load("en_core_web_lg")
 
-with open('intents.json','r') as file:
+with open('code\server\model\intents.json','r') as file:
     intents = json.load(file)
 
 all_words = [] # store here for bag of words (the X-training data) 
@@ -93,7 +93,7 @@ data = {
 }
 
 # Save our model in pyTorch file
-FILE_PATH = "C:\MyProjects\AmdocsProject\dataFile.pth"
+FILE_PATH = "code\server\model\dataFile.pth"
 torch.save(data,FILE_PATH)
 
 print(f'Training Complete!\nfile saved to {FILE_PATH}')
