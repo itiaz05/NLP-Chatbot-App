@@ -1,19 +1,19 @@
 import json
 import torch
 import spacy
-from neuralNet import NeuralNet
-from preProcess import bag_of_words,clean_pattern
-from afterProcess import create_patterns,getNumbers
+from .neuralNet import NeuralNet
+from .preProcess import bag_of_words,clean_pattern
+from .afterProcess import create_patterns,getNumbers
 
 nlp = spacy.load("en_core_web_lg")
 
-with open('code\server\model\intents.json','r') as file:
+with open('code\model\intents.json','r') as file:
     intents = json.load(file)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load the data file that contain dictionary of hyperparameters 
-FILE_PATH = "code\server\model\dataFile.pth"
+FILE_PATH = "code\model\dataFile.pth"
 data = torch.load(FILE_PATH)
 
 THRESHOLD = 0.75

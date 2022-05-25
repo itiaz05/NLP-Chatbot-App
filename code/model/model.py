@@ -4,12 +4,12 @@ import numpy as np
 from torch import device
 import torch
 from torch.utils.data import DataLoader
-from neuralNet import NeuralNet
-from preProcess import clean_pattern,bag_of_words
-from dataSet import DataSet
+from .neuralNet import NeuralNet
+from .preProcess import clean_pattern,bag_of_words
+from .dataSet import DataSet
 from sklearn.model_selection import train_test_split
-from test import test_model
-from train import train_model
+from .test import test_model
+from .train import train_model
 
 # Samples - A sample is a single row of data. It contains inputs that are fed into the algorithm and an output that
 #           is used to compare to the prediction and calculate an error.
@@ -40,7 +40,7 @@ def create_data_loader(X, Y):
 
 nlp = spacy.load("en_core_web_lg")
 
-with open('code\server\model\intents.json','r') as file:
+with open('code\model\intents.json','r') as file:
     intents = json.load(file)
 
 all_words = [] # store here for bag of words (the X-training data) 
