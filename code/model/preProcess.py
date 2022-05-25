@@ -28,3 +28,15 @@ def bag_of_words(sentence, all_words):
             bag[index] = 1
 
     return bag
+
+# Output: array of bag of words
+def bag_of_words_TF_IDF(sentence, all_words):
+    sentence_as_string = " ".join(sentence) # "convert" sentence into String because clean_pattern(String) get string as input
+    sentence_tokenize = clean_pattern(sentence_as_string)
+    bag = np.zeros(len(all_words),dtype=np.float32)
+
+    for index,word in enumerate(all_words):
+        if word in sentence_tokenize:
+            bag[index] +=1
+
+    return bag

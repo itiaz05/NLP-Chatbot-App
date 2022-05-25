@@ -1,6 +1,19 @@
 {
     "intents": [
         {
+            "tag": "greeting",
+            "patterns": [
+                "hi",
+                "hey",
+                "how are you",
+                "hello",
+                "good day",
+                "greeting"
+            ],
+            "response": 
+                "hi there, what can I do for you"
+        },
+        {
             "tag": "status cr",
             "patterns": [
             "what is the status of cr ?",
@@ -51,6 +64,7 @@
         {
             "tag": "flow owner release",
             "patterns": [
+            "what flows do i own in this release?",
             "for what flows in this release I am the owner?",
             "what is the flows in current release that i am the owner",
             "for what flows in this current release that i am the owner"
