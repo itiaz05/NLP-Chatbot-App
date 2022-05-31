@@ -2,17 +2,18 @@ import React from "react";
 import "./chatbot.css";
 import ChatHeader from "../components/chatHeader/ChatHeader";
 import ChatFooter from "../components/chatFooter/ChatFooter";
+import { Paper } from "@mui/material";
 
 const ChatBot = () => {
   return (
-    <div className="chatbox">
-      <div className="chatHeader">
+    <div>
+      <Paper>
         <ChatHeader />
-      </div>
-      <div className="chatContent">Main Content</div>
-      <div className="chatFooter">
+      </Paper>
+      <Paper className="chatContent">Main Content</Paper>
+      <Paper>
         <ChatFooter />
-      </div>
+      </Paper>
     </div>
   );
 };

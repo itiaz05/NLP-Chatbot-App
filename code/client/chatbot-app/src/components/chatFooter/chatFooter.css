@@ -1,14 +1,19 @@
 .chatFooter {
-  border: 1px solid black;
   padding: 1vh;
 }
 
 .textField {
   padding: 2vh;
-  width: 22vw;
+  width: 34vw;
   border-radius: 2vh;
 }
 
 .sendButton {
-  padding: 4vw;
+  padding: 2vh;
+}
+
+@media screen and (max-width: 600px) {
+  .textField {
+    width: 75vw;
+  }
 }

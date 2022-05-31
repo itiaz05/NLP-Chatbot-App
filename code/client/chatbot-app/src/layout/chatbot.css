@@ -2,7 +2,6 @@
   position: absolute;
   bottom: 19vh;
   right: 2vw;
-  border: 1px solid red;
   width: 30vw;
   height: 70vh;
   transition: all 0.3s;
@@ -13,6 +12,5 @@
 }
 
 .chatContent {
-  border: 2px solid black;
   height: 45vh;
 }

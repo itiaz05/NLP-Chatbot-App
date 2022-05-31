@@ -4,6 +4,7 @@
 }
 
 .App .buttonMassanger {
+  background-color: rgb(126, 159, 206);
   position: absolute;
   bottom: 5vh;
   right: 3vw;
