@@ -1,0 +1,25 @@
+.senderBox {
+  margin: 1vh;
+  width: 18vw;
+  border-radius: 1vh;
+  background-color: rgb(191, 222, 206);
+}
+
+.senderContent {
+  word-wrap: break-word;
+  padding-top: 1vh;
+  padding-left: 1vh;
+}
+
+.senderTime {
+  font-size: smaller;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  padding-left: 1vh;
+}
+
+@media screen and (max-width: 600px) {
+  .senderBox {
+    width: 45vw;
+  }
+}

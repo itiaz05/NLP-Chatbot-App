@@ -2,15 +2,24 @@
   position: absolute;
   bottom: 19vh;
   right: 2vw;
-  width: 30vw;
-  height: 70vh;
-  transition: all 0.3s;
+}
+
+.chatContent {
+  overflow-y: auto;
+  height: 45vh;
+  scroll-behavior: smooth;
 }
 
 .chatHeader {
   position: relative;
+  background-color: rgb(202, 217, 232);
 }
 
-.chatContent {
-  height: 45vh;
+.avatar {
+  border-radius: 50vh;
+  padding: 1vh;
+}
+
+.subtext {
+  padding: 1vh;
 }
