@@ -1,6 +1,6 @@
 .senderBox {
   margin: 1vh;
-  width: 18vw;
+  width: 16vw;
   border-radius: 1vh;
   background-color: rgb(191, 222, 206);
 }
@@ -9,6 +9,7 @@
   word-wrap: break-word;
   padding-top: 1vh;
   padding-left: 1vh;
+  padding-right: 1vh;
 }
 
 .senderTime {

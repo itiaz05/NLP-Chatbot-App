@@ -4,6 +4,32 @@
   right: 2vw;
 }
 
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.chatContent {
+  transition: ease-in 1s;
+  animation-iteration-count: 1;
+  animation-duration: 8s;
+  animation-fill-mode: forwards;
+}
+
 .chatContent {
   overflow-y: auto;
   height: 45vh;

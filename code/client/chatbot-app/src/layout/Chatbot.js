@@ -15,16 +15,17 @@ function handleClick(userMsg, prevHistory, setHistory) {
   if (userMsg === "") {
     return;
   }
-  let newHistory = []; // Create new history array to cause React re-render
-  const msgTime = new Date().toLocaleTimeString(); // Get current time
+
   document.getElementById("msgField").value = ""; // Clear input text after submit
-  document.getElementById("chatContent").scrollIntoView(false);
+
+  let newHistory = []; // Create new history array to cause React re-render
 
   // Copy prev history if there is one
   if (prevHistory.length !== 0) {
     newHistory = prevHistory.map((msg) => msg);
   }
 
+  const msgTime = new Date().toLocaleTimeString(); // Get current time
   newHistory.push({ component: <Sender msg={userMsg} time={msgTime} /> });
   setHistory(newHistory);
 }
@@ -32,11 +33,12 @@ function handleClick(userMsg, prevHistory, setHistory) {
 const ChatBot = () => {
   const [msg, setMsg] = useState("");
   const [history, setHistory] = useState([]);
-  const dummy = useRef(null);
+  const lastMassageRef = useRef(null);
 
-  // useEffect(() => {
-  //   dummy.current.scrollIntoView(false);
-  // }, [history]);
+  useEffect(() => {
+    lastMassageRef.current.scrollIntoView();
+    setMsg("");
+  }, [history]);
 
   return (
     <Grid container>
@@ -51,21 +53,20 @@ const ChatBot = () => {
             <Typography className="headerSubText">Amdocs</Typography>
           </div>
         </Paper>
-        <Paper className="chatContent" id="chatContent">
-          {history.map((obj) => {
+        <Paper className="chatContent">
+          {history.map((obj, index) => {
             return (
-              <>
-                <div className="msg" key={obj.id}>
-                  {obj.component}
-                </div>
-                {/* <div ref={dummy} /> */}
-              </>
+              <div className="msg" key={index}>
+                {obj.component}
+              </div>
             );
           })}
+          <div ref={lastMassageRef} />
         </Paper>
         <Paper>
           <TextField
             id="msgField"
+            autoComplete="off"
             placeholder="Text something..."
             onKeyDown={(e) => {
               if (e.key === "Enter") {
