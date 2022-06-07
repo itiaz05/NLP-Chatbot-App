@@ -15,11 +15,11 @@
   background-color: rgb(202, 217, 232);
 }
 
-.avatar {
-  border-radius: 50vh;
+.headerSubText {
   padding: 1vh;
 }
 
-.subtext {
+.avatar {
+  border-radius: 50vh;
   padding: 1vh;
 }
