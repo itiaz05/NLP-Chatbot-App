@@ -15,28 +15,23 @@ $axios.defaults.baseURL = APP_API_ENDPOINT;
 const getOnBeforeRequestHandler = () => (config) => config;
 
 class BotService {
-  static async predictUserInput() {
-    const response = await $axios.get(`http://localhost:5000/api/predicts/`);
-    return response;
-  }
-
   static pred(userInput) {
+    const params = { data: String(userInput) };
+    //params.append('data', String(userInput));
     return $axios
-      .get(`/predict/`, {
-        data: userInput,
-        //header: axious_allow_header,
-      })
+      .post('/predict/', params)
       .then((response) => {
         console.log("bot: ", response);
         return response.data.json;
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log("the following error raised: ", error);
       });
   }
-  static predixc(userInput) {
+  static predicts(userInput) {
     const res = $axios({
       method: "post",
-      url: `/predict/${userInput}`,
+      url: `/predict/`,
       data: userInput,
     });
     console.log(userInput);
@@ -45,15 +40,7 @@ class BotService {
     return res;
   }
 
-  static predict1 = (userInput) => (async) => {
-    try {
-      const res = $axios.get(`/predict/${userInput}`, userInput);
-      return res;
-    } catch (err) {
-      console.log(err.to_dict());
-    }
-    return "ok";
-  };
+
 }
 
 const apiService = { BotService };

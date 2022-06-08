@@ -10,22 +10,30 @@ import { useState, useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { Grid } from "@mui/material";
-
-function handleClick(userMsg, prevHistory, setHistory) {
-  if (userMsg === "") {
-    return;
-  }
-  document.getElementById("msgField").value = ""; // Clear input text after submit
-  const newHistory = prevHistory.map((msg) => msg); // Create new history array to cause React re-render
-  const msgTime = new Date().toLocaleTimeString(); // Get current time
-  newHistory.push({ component: <Sender msg={userMsg} time={msgTime} /> });
-  setHistory(newHistory);
-}
+import apiService from "../api";
 
 const ChatBot = () => {
   const [msg, setMsg] = useState("");
   const [history, setHistory] = useState([]);
   const lastMassageRef = useRef(null);
+  const [botAnswer, setBotAnswer] = useState("");
+
+  function handleClick(userMsg, prevHistory, setHistory) {
+    if (userMsg === "") {
+      return;
+    } else {
+      apiService.BotService.pred(userMsg).then((response) => {
+        setBotAnswer(response);
+        console.log(botAnswer);
+      });
+    }
+
+    document.getElementById("msgField").value = ""; // Clear input text after submit
+    const newHistory = prevHistory.map((msg) => msg); // Create new history array to cause React re-render
+    const msgTime = new Date().toLocaleTimeString(); // Get current time
+    newHistory.push({ component: <Sender msg={userMsg} time={msgTime} /> });
+    setHistory(newHistory);
+  }
 
   useEffect(() => {
     lastMassageRef.current.scrollIntoView();
