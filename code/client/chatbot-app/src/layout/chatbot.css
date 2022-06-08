@@ -1,0 +1,41 @@
+.chatbox {
+  position: absolute;
+  bottom: 19vh;
+  right: 2vw;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.chatContent {
+  overflow-y: auto;
+  height: 50vh;
+  scroll-behavior: smooth;
+}
+
+.chatHeader {
+  position: relative;
+  background-color: rgb(202, 217, 232);
+}
+
+.headerSubText {
+  padding: 1vh;
+}
+
+.avatar {
+  border-radius: 50vh;
+  padding: 1vh;
+}

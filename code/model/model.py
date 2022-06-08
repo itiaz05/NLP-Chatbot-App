@@ -40,7 +40,7 @@ def create_data_loader(X, Y):
 
 nlp = spacy.load("en_core_web_lg")
 
-with open('intents.json','r') as file:
+with open('code\server\model\intents.json','r') as file:
     intents = json.load(file)
 
 all_words = [] # store here for bag of words (the X-training data) 
