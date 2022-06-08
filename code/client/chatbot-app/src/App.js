@@ -3,6 +3,7 @@ import Fab from "@mui/material/Fab";
 import ForumIcon from "@mui/icons-material/Forum";
 import ChatBot from "./layout/Chatbot";
 import { useState } from "react";
+import Fade from "@mui/material/Fade";
 
 function App() {
   const [showChat, setShowChat] = useState(false);
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className="App">
       {showChat ? (
-        <div className="chat">
+        <div className="chat-visible">
           <ChatBot />
         </div>
       ) : null}

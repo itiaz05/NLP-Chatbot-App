@@ -9,3 +9,18 @@
   bottom: 5vh;
   right: 3vw;
 }
+
+.App .chat-visible {
+  position: relative;
+  height: 100vh;
+  animation: chatAnimate 0.5s;
+}
+
+@keyframes chatAnimate {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100vh;
+  }
+}
