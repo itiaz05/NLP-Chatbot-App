@@ -15,16 +15,8 @@ function handleClick(userMsg, prevHistory, setHistory) {
   if (userMsg === "") {
     return;
   }
-
   document.getElementById("msgField").value = ""; // Clear input text after submit
-
-  let newHistory = []; // Create new history array to cause React re-render
-
-  // Copy prev history if there is one
-  if (prevHistory.length !== 0) {
-    newHistory = prevHistory.map((msg) => msg);
-  }
-
+  const newHistory = prevHistory.map((msg) => msg); // Create new history array to cause React re-render
   const msgTime = new Date().toLocaleTimeString(); // Get current time
   newHistory.push({ component: <Sender msg={userMsg} time={msgTime} /> });
   setHistory(newHistory);
