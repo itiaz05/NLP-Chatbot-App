@@ -1,0 +1,24 @@
+.reciverBox {
+  float: right;
+  margin: 1vh;
+  width: 18vw;
+  border-radius: 1vh;
+  background-color: rgb(183, 197, 231);
+}
+
+.reciverContent {
+  word-wrap: break-word;
+  margin: 1vh;
+}
+
+.reciverTime {
+  font-size: smaller;
+  margin: 1vh;
+  right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .reciverBox {
+    width: 45vw;
+  }
+}

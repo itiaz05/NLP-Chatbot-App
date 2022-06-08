@@ -2,17 +2,40 @@
   position: absolute;
   bottom: 19vh;
   right: 2vw;
-  border: 1px solid red;
-  width: 30vw;
-  height: 70vh;
-  transition: all 0.3s;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.chatContent {
+  overflow-y: auto;
+  height: 50vh;
+  scroll-behavior: smooth;
 }
 
 .chatHeader {
   position: relative;
+  background-color: rgb(202, 217, 232);
 }
 
-.chatContent {
-  border: 2px solid black;
-  height: 45vh;
+.headerSubText {
+  padding: 1vh;
+}
+
+.avatar {
+  border-radius: 50vh;
+  padding: 1vh;
 }
