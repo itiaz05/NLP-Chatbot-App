@@ -7,7 +7,7 @@ from afterProcess import create_patterns,getNumbers
 
 nlp = spacy.load("en_core_web_lg")
 
-with open('code\server\model\intents.json','r') as file:
+with open('code\model\intents.json','r') as file:
     intents = json.load(file)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
