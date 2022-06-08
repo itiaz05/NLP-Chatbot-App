@@ -7,19 +7,20 @@ import apiService from "../../api";
 const ChatFooter = () => {
 
   const [botPrediction, setBotPrediction] = useState('');
-    const [value, setValue] = useState("");
+  const [msgSender, setMsgSender] = useState('');
 
 
-  const onSubmit = (userInput) => {
-    apiService.BotService.predictUserInput(userInput).then(response => {
-      setBotPrediction(response);
-    });
+  const onSubmit = () => {
+    const resa = apiService.BotService.pred(msgSender);
+    //const res = apiService.BotService.pred();
+    console.log(resa);
+    console.log(botPrediction);
   };
 
   return (
     <div className="chatFooter">
-      <input className="textField" type="text" value={setValue(this.value)}/>
-      <IconButton className="sendButton" aria-label="send" size="large" onClick={onSubmit(value)}>
+      <input className="textField" type="text" onChange={(e)=> setMsgSender(e.target.value)} />
+      <IconButton className="sendButton" aria-label="send" size="large" onClick={onSubmit}>
         <SendIcon fontSize="inherit" />
       </IconButton>
     </div>
