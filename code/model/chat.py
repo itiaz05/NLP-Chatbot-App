@@ -63,6 +63,6 @@ def get_response(msg):
             if tag == intent["tag"]:
                 intentReponse = intent["response"]
                 print(f"{bot_name}: {intentReponse}")
-                return {intentReponse}
+                return intentReponse
     else:
         print(f"{bot_name}: sorry i dont understand you...")

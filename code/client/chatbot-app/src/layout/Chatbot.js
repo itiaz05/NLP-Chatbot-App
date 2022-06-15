@@ -2,14 +2,12 @@ import "./chatbot.css";
 import React from "react";
 import { Paper } from "@mui/material";
 import Sender from "../components/massageTemplate/sender/Sender";
-import Reciver from "../components/massageTemplate/reciver/Reciver";
 import SendIcon from "@mui/icons-material/Send";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { Grid } from "@mui/material";
 import apiService from "../api";
 
 const ChatBot = () => {
@@ -23,6 +21,7 @@ const ChatBot = () => {
       return;
     } else {
       apiService.BotService.pred(userMsg).then((response) => {
+        console.log(response);
         setBotAnswer(response);
         console.log(botAnswer);
       });
