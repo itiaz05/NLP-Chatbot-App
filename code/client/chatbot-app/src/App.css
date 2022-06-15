@@ -10,7 +10,7 @@
   right: 3vw;
 }
 
-.App .chat-visible {
+.App .chat {
   position: relative;
   height: 100vh;
   animation: chatAnimate 0.5s;

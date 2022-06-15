@@ -11,14 +11,13 @@ const $axios = Axios.create({
 });
 $axios.defaults.baseURL = APP_API_ENDPOINT;
 
-const getOnBeforeRequestHandler = () => (config) => config;
-
 class BotService {
   static pred(userInput) {
     const params = { data: String(userInput) };
     return $axios
-      .post('/predict/', params)
+      .post("/predict/", params)
       .then((response) => {
+        console.log("bot: ", response);
         return response.data;
       })
       .catch((error) => {
