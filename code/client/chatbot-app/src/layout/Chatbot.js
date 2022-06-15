@@ -9,31 +9,38 @@ import Typography from "@mui/material/Typography";
 import { useState, useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { Grid } from "@mui/material";
-import apiService from "../api";
+import apiService from "./../api";
 
 const ChatBot = () => {
+  const welcomeMsg = "Welcome, how can i help you? (for exit type quit)";
   const [msg, setMsg] = useState("");
-  const [history, setHistory] = useState([]);
   const lastMassageRef = useRef(null);
   const [botAnswer, setBotAnswer] = useState("");
+  const [history, setHistory] = useState([
+    {
+      component: <Reciver msg={welcomeMsg} />,
+    },
+  ]);
 
-  function handleClick(userMsg, prevHistory, setHistory) {
+  function handleClick(userMsg) {
     if (userMsg === "") {
       return;
     } else {
       apiService.BotService.pred(userMsg).then((response) => {
         setBotAnswer(response);
-        console.log(botAnswer);
       });
     }
-
+    console.log(botAnswer);
     document.getElementById("msgField").value = ""; // Clear input text after submit
-    const newHistory = prevHistory.map((msg) => msg); // Create new history array to cause React re-render
-    const msgTime = new Date().toLocaleTimeString(); // Get current time
-    newHistory.push({ component: <Sender msg={userMsg} time={msgTime} /> });
+    const newHistory = history.map((msg) => msg); // Create new history array to cause React re-render
+    newHistory.push(
+      { component: <Sender msg={userMsg} /> },
+      { component: <Reciver msg={botAnswer} /> }
+    );
     setHistory(newHistory);
   }
+
+  useEffect(() => {}, [botAnswer]);
 
   useEffect(() => {
     lastMassageRef.current.scrollIntoView();
@@ -69,7 +76,7 @@ const ChatBot = () => {
           placeholder="Text something..."
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              handleClick(msg, history, setHistory);
+              handleClick(msg);
             }
           }}
           onChange={(e) => setMsg(e.target.value)}
@@ -80,7 +87,7 @@ const ChatBot = () => {
           variant="contained"
           className="sendButton"
           onClick={() => {
-            handleClick(msg, history, setHistory);
+            handleClick(msg);
           }}
           aria-label="send_msg"
           sx={{ height: "9.7vh" }}

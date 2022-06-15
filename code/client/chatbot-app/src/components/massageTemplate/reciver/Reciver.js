@@ -1,12 +1,12 @@
 import React from "react";
 import "./reciver.css";
 
-const Reciver = () => {
+const Reciver = ({ msg }) => {
   return (
     <div className="reciverBox">
-      <div className="reciverContent">reciver</div>
+      <div className="reciverContent">{msg}</div>
       <div>
-        <div className="reciverTime">13:30</div>
+        <div className="reciverTime">{new Date().toLocaleTimeString()}</div>
       </div>
     </div>
   );
