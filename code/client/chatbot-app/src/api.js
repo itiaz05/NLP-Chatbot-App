@@ -18,7 +18,6 @@ class BotService {
     return $axios
       .post("/predict/", params)
       .then((response) => {
-        console.log("bot: ", response);
         return response.data;
       })
       .catch((error) => {

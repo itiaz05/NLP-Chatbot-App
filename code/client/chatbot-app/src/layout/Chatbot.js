@@ -15,7 +15,6 @@ const ChatBot = () => {
   const welcomeMsg = "Welcome, how can i help you? (for exit type quit)";
   const [msg, setMsg] = useState("");
   const lastMassageRef = useRef(null);
-  const [botAnswer, setBotAnswer] = useState("");
   const [history, setHistory] = useState([
     {
       component: <Reciver msg={welcomeMsg} />,
@@ -23,24 +22,20 @@ const ChatBot = () => {
   ]);
 
   function handleClick(userMsg) {
+    document.getElementById("msgField").value = ""; // Clear input text after submit
     if (userMsg === "") {
       return;
     } else {
       apiService.BotService.pred(userMsg).then((response) => {
-        setBotAnswer(response);
+        const newHistory = history.map((msg) => msg); // Create new history array to cause React re-render
+        newHistory.push(
+          { component: <Sender msg={userMsg} /> },
+          { component: <Reciver msg={response} /> }
+        );
+        setHistory(newHistory);
       });
     }
-    console.log(botAnswer);
-    document.getElementById("msgField").value = ""; // Clear input text after submit
-    const newHistory = history.map((msg) => msg); // Create new history array to cause React re-render
-    newHistory.push(
-      { component: <Sender msg={userMsg} /> },
-      { component: <Reciver msg={botAnswer} /> }
-    );
-    setHistory(newHistory);
   }
-
-  useEffect(() => {}, [botAnswer]);
 
   useEffect(() => {
     lastMassageRef.current.scrollIntoView();
