@@ -14,7 +14,6 @@ $axios.defaults.baseURL = APP_API_ENDPOINT;
 class BotService {
   static pred(userInput) {
     const params = { data: String(userInput) };
-    //params.append('data', String(userInput));
     return $axios
       .post("/predict/", params)
       .then((response) => {

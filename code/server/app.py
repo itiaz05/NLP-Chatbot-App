@@ -1,3 +1,6 @@
+import json
+import jsonpickle
+from flask import Flask, Response,jsonify,request
 from flask import Flask,jsonify,request
 from model.chat import get_response
 from flask_cors import CORS
@@ -10,6 +13,8 @@ CORS(app)
 def predict():
    userInput = request.get_json()
    botResponse = get_response(userInput['data'])
+   #botResponse = jsonpickle.encode(botResponse)
+   strResponse = str(botResponse)
    return jsonify(botResponse), 200
 
 

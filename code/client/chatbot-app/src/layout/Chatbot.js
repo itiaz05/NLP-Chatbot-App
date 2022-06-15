@@ -2,7 +2,6 @@ import "./chatbot.css";
 import React from "react";
 import { Paper } from "@mui/material";
 import Sender from "../components/massageTemplate/sender/Sender";
-import Reciver from "../components/massageTemplate/reciver/Reciver";
 import SendIcon from "@mui/icons-material/Send";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
@@ -10,6 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import apiService from "./../api";
+import Reciver from "../components/massageTemplate/reciver/Reciver";
 
 const ChatBot = () => {
   const welcomeMsg = "Welcome, how can i help you? (for exit type quit)";
@@ -28,10 +28,8 @@ const ChatBot = () => {
     } else {
       apiService.BotService.pred(userMsg).then((response) => {
         const newHistory = history.map((msg) => msg); // Create new history array to cause React re-render
-        newHistory.push(
-          { component: <Sender msg={userMsg} /> },
-          { component: <Reciver msg={response} /> }
-        );
+        newHistory.push({ component: <Sender msg={userMsg} /> });
+        newHistory.push({ component: <Reciver msg={response} /> });
         setHistory(newHistory);
       });
     }
