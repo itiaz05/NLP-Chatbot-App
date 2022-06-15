@@ -11,6 +11,7 @@ import TextField from "@mui/material/TextField";
 import apiService from "./../api";
 import Reciver from "../components/massageTemplate/reciver/Reciver";
 
+console.log("a");
 const ChatBot = () => {
   const welcomeMsg = "Welcome, how can i help you? (for exit type quit)";
   const [msg, setMsg] = useState("");
